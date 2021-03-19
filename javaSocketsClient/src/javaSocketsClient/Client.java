@@ -40,18 +40,14 @@ public class Client {
         }
         catch(UnknownHostException un)
         {
-            System.out.println("Connection failed:");
-            System.out.println(un);
+            System.out.println("Connection failed:\n" + un);
         }
         catch(IOException io)
         {
-            System.out.println("Connection failed:");
-            System.out.println(io);
+            System.out.println("Connection failed:\n" + io);
         }
         
-        String clientData = "void";
-        String serverData = "void";
-        
+        String clientData = "void", serverData = "void";
         Scanner scan = new Scanner(System.in);
         
         while (!clientData.equals("exit"))
@@ -59,13 +55,11 @@ public class Client {
             try
             {
             	System.out.println("Enter data that you want me to send to the server: ");
-//                Scanner scan = new Scanner(System.in);
             	clientData = scan.nextLine();
             	toServer.writeUTF(clientData);
                 System.out.println("awaiting response");
                 serverData = fromServer.readUTF();
                 System.out.println(serverData);
-                
             }
             catch(IOException io)
             {
@@ -78,6 +72,7 @@ public class Client {
             toServer.close();
             newSocket.close();
         }
+        
         catch(IOException io)
         {
             System.out.println(io);
