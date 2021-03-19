@@ -26,14 +26,14 @@ public class Server {
             System.out.println("I am the TCP Server. I am listening on port " + port + ", and waiting for a client.");
             
             newSocket1 = serverObject.accept();
-            toClient1 = new DataOutputStream(new BufferedOutputStream(newSocket1.getOutputStream()));
+            toClient1 = new DataOutputStream(newSocket1.getOutputStream());
             System.out.println("I received a connection from a client.");
             clientInput1 = new DataInputStream(new BufferedInputStream(newSocket1.getInputStream()));
             
             System.out.println("I am waiting for a second client.");
             
             newSocket2 = serverObject.accept();
-            toClient2 = new DataOutputStream(new BufferedOutputStream(newSocket2.getOutputStream()));
+            toClient2 = new DataOutputStream(newSocket2.getOutputStream());
             System.out.println("I received a connection from a second client.");
             clientInput2 = new DataInputStream(new BufferedInputStream(newSocket2.getInputStream()));
             
